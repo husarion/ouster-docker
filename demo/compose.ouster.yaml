@@ -6,7 +6,7 @@ services:
     network_mode: host
     devices:
       - /dev/ptp0:/dev/ptp0
-    command: sudo ptp4l -i eno1 -m [global] tx_timestamp_timeout 10 
+    command: sudo ptp4l -i eno1 -m [global] tx_timestamp_timeout 10
 
   ouster-lidar:
     build:
@@ -20,14 +20,3 @@ services:
         sensor_hostname:=10.15.20.5 
         timestamp_mode:=TIME_FROM_PTP_1588 
         lidar_mode:=512x10 metadata:=/ouster_metadata.json
-
-  # remote-desktop:
-  #   image: donowak/remote-desktop:lan
-  #   volumes:
-  #     - /tmp/.X11-unix:/tmp/.X11-unix:rw
-  #   ipc: host
-  #   ports:
-  #     - 8080:8080
-  #   environment:
-  #     - VNC_PASSWORD=husarion
-  #     - DISPLAY
