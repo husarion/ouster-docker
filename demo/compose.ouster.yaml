@@ -1,20 +1,11 @@
 services:
 
-  ouster-clock-sync:
-    build:
-      context: .
-    network_mode: host
-    devices:
-      - /dev/ptp0:/dev/ptp0
-    command: sudo ptp4l -i eno1 -m [global] tx_timestamp_timeout 10
-
   ouster-lidar:
-    build:
-      context: .
+    image: husarion/ouster:melodic
     network_mode: host
     environment:
-      - ROS_MASTER_URI=http://10.15.20.2:11311
       - ROS_IP=10.15.20.3
+      - ROS_MASTER_URI=http://10.15.20.2:11311
     command: >
       roslaunch ouster_ros ouster.launch 
         sensor_hostname:=10.15.20.5 
