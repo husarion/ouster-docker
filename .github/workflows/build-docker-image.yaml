@@ -4,16 +4,6 @@ on:
   push:
     branches:
       - "main"
-  workflow_dispatch:
-    inputs:
-      tag:
-        description: "A tag that the image will be built with"
-        required: true
-        default: "melodic"
-      branch:
-        description: "A branch that will be used to build the image"
-        required: true
-        default: "main"
 
 jobs:
   build:
@@ -47,6 +37,6 @@ jobs:
           file: ./Dockerfile
           platforms: linux/arm64, linux/amd64
           push: true
-          tags: husarion/ouster:${{ github.event.inputs.tag }}
+          tags: husarion/ouster:melodic
           cache-from: type=registry,ref=husarion/ouster:melodic
           cache-to: type=inline
