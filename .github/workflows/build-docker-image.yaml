@@ -38,5 +38,3 @@ jobs:
           platforms: linux/arm64, linux/amd64
           push: true
           tags: husarion/ouster:melodic
-          cache-from: type=registry,ref=husarion/ouster:melodic
-          cache-to: type=inline

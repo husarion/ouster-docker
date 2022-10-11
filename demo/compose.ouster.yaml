@@ -7,7 +7,9 @@ services:
       - ROS_IP=10.15.20.3
       - ROS_MASTER_URI=http://10.15.20.2:11311
     command: >
-      roslaunch ouster_ros ouster.launch 
-        sensor_hostname:=10.15.20.5 
-        timestamp_mode:=TIME_FROM_PTP_1588 
-        lidar_mode:=512x10 metadata:=/ouster_metadata.json
+      roslaunch ouster_ros sensor.launch
+        timestamp_mode:=TIME_FROM_PTP_1588
+        metadata:=/ouster_metadata.json
+        viz:=false
+        sensor_hostname:=10.15.20.5
+        lidar_mode:=1024x20
