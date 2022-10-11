@@ -2,6 +2,8 @@ services:
 
   remote-desktop:
     image: donowak/remote-desktop:lan
+    container_name: vnc-remote-desktop
+    restart: unless-stopped
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
     ipc: host
