@@ -1,9 +1,7 @@
 services:
 
   ouster-lidar:
-    # image: husarion/ouster:melodic
-    build: 
-      context: ./..
+    image: husarion/ouster:melodic
     container_name: ouster-ros
     restart: on-failure
     network_mode: host
