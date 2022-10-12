@@ -3,7 +3,7 @@ services:
   rviz:
     image: husarion/rviz:noetic
     container_name: rviz
-    restart: unless-stopped
+    restart: on-failure
     network_mode: host
     ipc: host
     volumes:

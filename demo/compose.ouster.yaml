@@ -1,9 +1,11 @@
 services:
 
   ouster-lidar:
-    image: husarion/ouster:melodic
+    # image: husarion/ouster:melodic
+    build: 
+      context: ./..
     container_name: ouster-ros
-    restart: unless-stopped
+    restart: on-failure
     network_mode: host
     environment:
       - ROS_IP=10.15.20.3
