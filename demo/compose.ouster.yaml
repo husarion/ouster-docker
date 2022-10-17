@@ -10,7 +10,7 @@ services:
       - ROS_MASTER_URI=http://10.15.20.2:11311
     command: >
       roslaunch ouster_ros sensor.launch
-        timestamp_mode:=TIME_FROM_PTP_1588
+        timestamp_mode:=TIME_FROM_ROS_TIME
         metadata:=/ouster_metadata.json
         viz:=false
         sensor_hostname:=10.15.20.5
