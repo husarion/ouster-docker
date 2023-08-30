@@ -6,8 +6,8 @@ Dockerized Ouster LiDAR package from [ouster-lidar/ouster-ros](https://github.co
 
 ```bash
 docker run --rm -it \
-  husarion/ouster:melodic \
-  roslaunch ouster_ros sensor.launch \
+  husarion/ouster:humble \
+  ros2 launch ouster_ros sensor.composite.launch.xml \
     timestamp_mode:=TIME_FROM_ROS_TIME \
     metadata:=/ouster_metadata.json \
     sensor_hostname:=10.15.20.5 \
@@ -23,20 +23,22 @@ For more information about the Ouster ROS package itself, please refer to [READM
 ### Ouster LiDAR container + rviz container
 
 Connect Ouster LiDAR to the first computer and run:
-
 ```bash
 git clone https://github.com/husarion/ouster-docker.git
 cd ouster-docker/demo
 
-source ./setup_virtual_desktop.sh
-
 docker compose \
 -f compose.ouster.yaml \
--f compose.rviz.yaml \
--f compose.vnc.yaml \
 up
 ```
 
-On the second computer connected to the same LAN with a connected display open `http://localhost:8080/vnc_auto.html` in the web browser
+On the second computer connected to the same LAN and run:
+```bash
+git clone https://github.com/husarion/ouster-docker.git
+cd ouster-docker/demo
 
+docker compose \
+-f compose.rviz.yaml \
+up
+```
 

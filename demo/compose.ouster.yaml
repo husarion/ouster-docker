@@ -1,15 +1,16 @@
-services:
+x-net-config:
+  &net-config
+  network_mode: host
+  ipc: host
+  env_file: net.env
 
+services:
   ouster-lidar:
-    image: husarion/ouster:melodic
+    image: husarion/ouster:humble
     container_name: ouster-ros
-    restart: on-failure
-    network_mode: host
-    environment:
-      - ROS_IP=10.15.20.3
-      - ROS_MASTER_URI=http://10.15.20.2:11311
+    <<: *net-config
     command: >
-      roslaunch ouster_ros sensor.launch
+      ros2 launch ouster_ros sensor.composite.launch.xml
         timestamp_mode:=TIME_FROM_ROS_TIME
         metadata:=/ouster_metadata.json
         viz:=false

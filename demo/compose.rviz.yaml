@@ -1,16 +1,19 @@
-services:
+x-net-config:
+  &net-config
+  network_mode: host
+  ipc: host
+  env_file: net.env
 
+x-cpu-config:
+  &cpu-config
+  environment:
+    - DISPLAY=${DISPLAY:?err}
+    - LIBGL_ALWAYS_SOFTWARE=1
+
+services:
   rviz:
-    image: husarion/rviz:noetic
-    container_name: rviz
-    restart: on-failure
-    network_mode: host
-    ipc: host
+    image: husarion/rviz2:humble
+    <<: [ *net-config, *cpu-config ]
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
-      - ./config/default.rviz:/root/.rviz/default.rviz
-    environment:
-      - DISPLAY
-      - LIBGL_ALWAYS_SOFTWARE=1
-      - ROS_IP=10.15.20.3
-      - ROS_MASTER_URI=http://10.15.20.2:11311
+      - ./config/default.rviz:/root/.rviz2/default.rviz
