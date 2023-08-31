@@ -36,7 +36,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        platforms: ["linux/amd64", "linux/arm64"]
+        platforms: ["linux/amd64"]
         ros_distro: ["humble"]
 
     steps:
