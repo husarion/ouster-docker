@@ -1,3 +1,5 @@
+# xhost +local:docker
+
 x-net-config:
   &net-config
   network_mode: host
@@ -12,7 +14,7 @@ x-cpu-config:
 
 services:
   rviz:
-    image: husarion/rviz2:humble
+    image: husarion/rviz2:humble-11.2.6-20230809
     <<: [ *net-config, *cpu-config ]
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw

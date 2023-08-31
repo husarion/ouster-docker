@@ -14,5 +14,5 @@ services:
         timestamp_mode:=TIME_FROM_ROS_TIME
         metadata:=/ouster_metadata.json
         viz:=false
-        sensor_hostname:=10.15.20.5
-        lidar_mode:=1024x20
+        sensor_hostname:=10.15.20.10
+        lidar_mode:=512x10
