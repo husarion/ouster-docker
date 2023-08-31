@@ -36,8 +36,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        platforms: "linux/amd64, linux/arm64"
-        ros_distro: "humble"
+        platforms: ["linux/amd64", "linux/arm64"]
+        ros_distro: ["humble"]
 
     steps:
 
@@ -51,7 +51,6 @@ jobs:
           dockerhub_token:  ${{ secrets.DOCKERHUB_TOKEN }}
           main_branch_name: ros2
           build_type: ${{ inputs.build_type }}
-          dockerfile: ${{ matrix.dockerfile }}
           ros_distro: ${{ matrix.ros_distro }}
           platforms: ${{ matrix.platforms }}
           # variables important only for stable release
