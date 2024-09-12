@@ -6,7 +6,7 @@ x-net-config:
 
 services:
   ouster-lidar:
-    image: husarion/ouster:humble
+    image: husarion/ouster:humble-0.10.2-20230831
     container_name: ouster-ros
     <<: *net-config
     command: >

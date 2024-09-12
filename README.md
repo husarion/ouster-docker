@@ -6,7 +6,7 @@ Dockerized Ouster LiDAR package from [ouster-lidar/ouster-ros](https://github.co
 
 ```bash
 docker run --rm -it \
-  husarion/ouster:humble \
+  husarion/ouster:humble-0.10.2-20230831 \
   ros2 launch ouster_ros sensor.composite.launch.xml \
     timestamp_mode:=TIME_FROM_ROS_TIME \
     metadata:=/ouster_metadata.json \
