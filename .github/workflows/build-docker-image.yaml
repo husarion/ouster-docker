@@ -1,6 +1,6 @@
-name: Build/Publish ROS Docker Image 
+name: Build/Publish ROS Docker Image
 
-on: 
+on:
   workflow_dispatch:
     inputs:
       build_type:
@@ -37,7 +37,7 @@ jobs:
       fail-fast: false
       matrix:
         platforms: ["linux/amd64"]
-        ros_distro: ["humble"]
+        ros_distro: ["humble", "jazzy"]
 
     steps:
 
