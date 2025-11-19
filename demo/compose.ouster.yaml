@@ -6,7 +6,12 @@ x-net-config:
 
 services:
   ouster-lidar:
-    image: husarion/ouster:humble-0.10.2-20230831
+    # image: husarion/ouster:jazzy-0.13.11-20250813
+    build: 
+      context: ../
+      dockerfile: Dockerfile
+      args:
+        ROS_DISTRO: jazzy
     container_name: ouster-ros
     <<: *net-config
     command: >
@@ -14,5 +19,5 @@ services:
         timestamp_mode:=TIME_FROM_ROS_TIME
         metadata:=/ouster_metadata.json
         viz:=false
-        sensor_hostname:=10.15.20.5
+        sensor_hostname:=10.15.20.197
         lidar_mode:=512x10
