@@ -5,14 +5,15 @@ x-net-config:
   env_file: net.env
 
 services:
+
   ouster-lidar:
-    # image: husarion/ouster:jazzy-0.13.11-20250813
-    build: 
-      context: ../
-      dockerfile: Dockerfile
-      args:
-        ROS_DISTRO: jazzy
-    container_name: ouster-ros
+    image: husarion/ouster:jazzy-0.13.12-20251119
+    # build: 
+    #   context: ../
+    #   dockerfile: Dockerfile
+    #   args:
+    #     ROS_DISTRO: jazzy
+    # container_name: ouster-ros
     <<: *net-config
     command: >
       ros2 launch ouster_ros sensor.composite.launch.xml
